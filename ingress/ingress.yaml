@@ -1,0 +1,44 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kong-madaurus
+spec:
+  ingressClassName: kong
+  rules:
+   - http:
+      paths:
+      - path: /material
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: material-madaurus
+            port:
+              number: 8080
+      - path: /staff
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: staff-madaurus
+            port:
+              number: 8080 
+      - path: /communication
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: communication-madaurus
+            port:
+              number: 8080 
+      - path: /assignment
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: assignments-madaurus
+            port:
+              number: 8080 
+      - path: /notifications
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: notification-madaurus
+            port:
+              number: 3000                                             
